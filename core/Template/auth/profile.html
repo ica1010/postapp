@@ -1,0 +1,94 @@
+{% extends 'admin-base.html' %}
+{% load static %}
+
+{% block adminblock %}
+
+***********************************-->
+<div class="content-body">
+   <div class="container-fluid">
+       <div class="row page-titles">
+           <ol class="breadcrumb">
+               <li class="breadcrumb-item"><a href="javascript:void(0)">Profile</a></li>
+               <li class="breadcrumb-item active"><a href="javascript:void(0)">Edit Profile</a></li>
+           </ol>
+       </div>
+       <!-- row -->
+       <div class="row">
+           <div class="col-xl-3 col-lg-4">
+               <div class="clearfix">
+                   <div class="card card-bx author-profile m-b30">
+                       <div class="card-body">
+                           <div class="p-5">
+                               <div class="author-profile">
+                                  
+                                   <div class="author-info">
+                                       <h6 class="title">{{request.user.username}}</h6>
+                                       <span>{{request.user.email}}</span>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="info-list">
+                               <ul>
+                                   <li><a href="app-profile.html">Models</a><span>36</span></li>
+                                   <li><a href="app-profile.html">Gallery</a><span>3</span></li>
+                                   <li><a href="app-profile.html">Lessons</a><span>1</span></li>
+                               </ul>
+                           </div>
+                       </div>
+                       <div class="card-footer">
+                           
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="col-xl-9 col-lg-8">
+               <div class="card  card-bx m-b30">
+                   <div class="card-header">
+                       <h4 class="card-title">Account setup</h4>
+                   </div>
+                   <form class="profile-form">
+                       <div class="card-body">
+                           <div class="row">
+                               <div class="col-sm-6 m-b30">
+                                   <label class="form-label">Full Name</label>
+                                   <input type="text" class="form-control" value="{{request.user.first_name}} {{request.user.last_name}}">
+                               </div>
+                               <div class="col-sm-6 m-b30">
+                                   <label class="form-label">Username</label>
+                                   <input type="text" class="form-control" value="{{request.user.username}}">
+                               </div>
+                               
+                               <div class="col-sm-6 m-b30">
+                                   <label class="form-label">Gender</label>
+                                   <select class="selectpicker nice-select default-select form-control wide mh-auto">
+                                       <option>Male</option>
+                                       <option>Female</option>
+                                       <option>Other</option>
+                                   </select>
+                               </div>
+                              
+                               <div class="col-sm-6 m-b30">
+                                   <label class="form-label">Phone</label>
+                                   <input type="text" class="form-control" value="{{profile.phone}}">
+                               </div>
+                               <div class="col-sm-6 m-b30">
+                                   <label class="form-label">Email adress</label>
+                                   <input type="text" class="form-control" value="{{request.user.email}}">
+                               </div>
+                             
+                           </div>
+                           <hr>
+                           
+                       </div>
+                       <div class="card-footer">
+                           <button class="btn btn-primary">UPDATE</button>
+                           <a href="page-register.html" class="text-primary btn-link">Forgot your password?</a>
+                       </div>
+                   </form>
+               </div>
+           </div>
+       </div>	
+   </div>
+</div>
+
+{% endblock adminblock %}

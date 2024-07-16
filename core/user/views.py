@@ -73,3 +73,6 @@ def logout_view(request):
     logout(request)
     messages.success(request, 'you are now logged out ')
     return redirect('home')  
+
+def profile(request):
+    return render(request,'auth/profile.html' )

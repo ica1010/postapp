@@ -168,7 +168,7 @@
 									<img src="{% static 'images/profile/pic1.jpg' %}" width="20" alt="">
 								</a>
 								<div class="dropdown-menu dropdown-menu-end">
-									<a href="" class="dropdown-item ai-icon">
+									<a href=" {% url 'profile' %}" class="dropdown-item ai-icon">
 										<svg xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18"
 											height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
 											stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -208,11 +208,12 @@
 				<div class="dropdown header-profile2 ">
 					<a class="nav-link " href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
 						<div class="header-info2 d-flex align-items-center">
-							<img src="{% static 'images/profile/pic1.jpg' %}" alt="">
+							<span class="bg-dark text-ligth" style="padding: 10px 12px; border-radius: 50px;color: whitesmoke;font-weight: 700;"> {{request.user.username|slice:":2"}}</span>
+						
 							<div class="d-flex align-items-center sidebar-info">
 								<div>
-									<span class="font-w400 d-block">Franklin Jr</span>
-									<small class="text-end font-w400">Superadmin</small>
+									<span class="font-w400 d-block">{{request.user.username}}</span>
+									<small class="text-end font-w400">{{request.user.email}}</small>
 								</div>
 								<i class="fas fa-chevron-down"></i>
 							</div>
@@ -220,7 +221,7 @@
 						</div>
 					</a>
 					<div class="dropdown-menu dropdown-menu-end">
-						<a href="" class="dropdown-item ai-icon ">
+						<a href="{% url 'profile' %}" class="dropdown-item ai-icon ">
 							<svg xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18"
 								viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
 								stroke-linecap="round" stroke-linejoin="round">
