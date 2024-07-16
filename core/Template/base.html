@@ -1,0 +1,342 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="keywords" content="admin dashboard, admin template, analytics, bootstrap, bootstrap 5, bootstrap 5 admin template, job board admin, job portal admin,
+	modern, responsive admin dashboard, sales dashboard, sass, ui kit, web app, frontent" />
+	<meta name="author" content="DexignLab" />
+	<meta name="robots" content="" />
+	<meta name="description"
+		content="We proudly present a job portal, a job posting, and the bootstrap 5 admin & frontend HTML template, If you are a job expert and 
+	would like to build a superb and top-notch website for your business or a posting center for jobs, then job admin is the best choice." />
+	<meta property="og:title" content="Jobick : Job Admin Dashboard Bootstrap 5 Template + FrontEnd" />
+	<meta property="og:description"
+		content="We proudly present a job portal, a job posting, and the bootstrap 5 admin & frontend HTML template, If you are a job expert 
+	and would like to build a superb and top-notch website for your business or a posting center for jobs, then job admin is the best choice." />
+	<meta property="og:image" content="https://Jobick.dexignlab.com/xhtml/social-image.png" />
+	<meta name="format-detection" content="telephone=no" />
+
+	<!-- Mobile Specific -->
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- Title -->
+	<title>Jobick : Job Admin Dashboard Bootstrap 5 Template + FrontEnd</title>
+
+	<!-- Favicon icon -->
+	<link rel="icon" type="image/png" href="assets/images/favicon.png" />
+
+	<!-- Stylesheet -->
+	<link href="{% static 'assets/vendor/animate/animate.css' %}" rel="stylesheet" />
+	<link href="{% static 'assets/vendor/magnific-popup/magnific-popup.css' %}" rel="stylesheet" />
+	<link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'assets/vendor/switcher/switcher.css' %}" rel="stylesheet" />
+	<link href="{% static 'assets/vendor/rangeslider/rangeslider.css' %}" rel="stylesheet" />
+
+	<!-- Custom Stylesheet -->
+	<link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
+	<link class="skin" rel="stylesheet" href="{% static 'assets/css/skin/skin-1.css' %}" />
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+		rel="stylesheet" />
+
+		<style>
+			.header-nav .nav > li.menu-item-has-children > a:after, .header-nav .nav > li.sub-menu-down > a:after{
+				display: none !important;
+			}
+		</style>
+</head>
+
+<body id="bg" data-anm=".anm">
+	<!--loader start -->
+	<div id="loading-area" class="loading-page-2">
+		<div class="loader">
+			<div class="ball one"></div>
+			<div class="ball two"></div>
+			<div class="ball three"></div>
+			<div class="ball four"></div>
+		</div>
+	</div>
+	<!--loader start -->
+
+	<div class="page-wraper">
+		<!-- Header -->
+		<header class="site-header mo-left header header-transparent">
+			<!-- Main Header -->
+			<div class="sticky-header main-bar-wraper navbar-expand-lg">
+				<div class="main-bar clearfix">
+					<div class="container clearfix">
+						<!-- Website Logo -->
+						<div class="logo-header">
+							<a href="/" class="logo-dark">
+								<h1 style="font-size: x-larger">Event</h1>
+							</a>		
+						</div>
+
+						<!-- Nav Toggle Button -->
+						<button class="navbar-toggler collapsed navicon justify-content-center" type="button"
+							data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+							aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+							<span></span>
+							<span></span>
+							<span></span>
+						</button>
+
+						<!-- Extra Nav -->
+						<div class="extra-nav">
+							<div class="extra-cell">
+						
+								<a class="btn btn-dark btn-lg btn-shadow" href="{% url 'addjob' %}">
+									<span class="fas fa-bell m-r10"></span>Ajouter un evenement </a>
+
+							</div>
+						</div>
+
+						<!-- Header Nav -->
+						<div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
+							<div class="logo-header">
+								<a href="/" class="logo-dark">
+									<h1 style="font-size: x-larger">Event</h1>
+								</a>
+							</div>
+							<ul class="nav navbar-nav navbar navbar-left">
+								<li><a href="/">Acceuille</a></li>
+								<li><a href="{% url 'job' %}">Evenement</a></li>
+								<li><a href="/#howitwork">Comment ca marche ?</a></li>
+
+								<!-- <li><a href="pricing.html">Pricing</a></li>-->
+							
+								<!-- <li><a href="about-us.html">Qui somme nous </a></li>  -->
+								<li><a href="{% url 'contact' %}">Nous contacter</a></li>
+
+								
+								{% if request.user.is_authenticated %}
+								<li class="sub-menu-down"><a href="" style="padding: 0px;">
+									<span class="bg-dark text-ligth" style="padding: 12px 9px; border-radius: 50px;color: whitesmoke;font-weight: 700;"> {{request.user.username|slice:":2"}}</span>
+								</a>
+									<ul class="sub-menu">
+										<li><a href="{% url 'AdminJobList' %}">Dashboaard</a></li>
+										<li><a href="">Profile</a></li>
+										<li><a href="{% url 'logout' %}">Logout</a></li>
+									</ul>
+								</li>
+								{% endif %}
+									
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Main Header End -->
+		</header>
+		<!-- He		<div class="basic-dropdown">
+										<div class="dropdown">
+											<a class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">
+												<div class="info-inner">
+													<i class="fas fa-user-tie"></i>
+													<span class="title m-r10">{{request.user.username}}</span>
+													
+												</div>
+											</a>
+											<div class="dropdown-menu" data-popper-placement="bottom-start" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(0px, 42px, 0px);">
+												<a class="dropdown-item>Dashboaard</a>
+												<a class="dropdown-item" href="javascript:voiud(0);">My account</a>
+												<div class="dropdown-divider"></div>
+												<a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+											</div>
+										</div>
+									</div>ader End -->
+
+		{% block body %} {% endblock body %}
+
+		<!-- Footer -->
+		<footer class="site-footer style-1 position-relative">
+			<div class="footer-top bg-light sapping">
+				<div class="container">
+					<div class="row p-50">
+						<div class="col-lg-2"></div>
+						<div class="col-lg-3 col-md-12 col-sm-12">
+							<div class="widget wow fadeInUp text-center text-lg-start" data-wow-delay="1.4s">
+								<div class="footer-logo">
+									<a href="/" class="logo-dark">
+										<h1 style="font-size: x-larger">Job</h1>
+									</a>
+								</div>
+								<p>
+									Many desktop publishing packages and web page editors now.
+								</p>
+								<div class="widget_getintuch">
+									<ul>
+										<li class="text-center">
+											<i class="fa-regular fa-comments"></i>
+											Example@job.com
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-12 col-sm-12">
+							<div class="row">
+								<div class="col-lg-4 col-md-4 col-sm-4 col-6">
+									<div class="widget widget_links wow fadeInUp" data-wow-delay="1.6s">
+										<h4 class="footer-title">Useful Links</h4>
+										<ul>
+											<li><a href="/">Home</a></li>
+											<li><a href="{% url 'job' %}">Emplois</a></li>
+											<li><a href="/#howitwork">Comment ca marche ?</a></li>
+											<li><a href="javascript:void(0);">Post a Job</a></li>
+											<li><a href="{% url 'contact' %}">Contact us</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-4 col-sm-4 col-6">
+									<div class="widget widget_links wow fadeInUp" data-wow-delay="1.8s">
+										<h4 class="footer-title">Category</h4>
+										<ul>
+											{% for category in category %} {% if forloop.counter < 6 %} <li>
+												<a href="{% url 'cat-job' category.cid %}">{{category.title}}</a>
+												</li>
+												{% endif %} {% endfor %}
+												<li><a href="{% url 'category' %}">more</a></li>
+										</ul>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-4 col-sm-4 col-6">
+									<div class="widget widget_links wow fadeInUp" data-wow-delay="2.0s">
+										<h4 class="footer-title">Follow Us</h4>
+										<ul>
+											<li><a href="javascript:void(0);">Linked In </a></li>
+											<li><a href="javascript:void(0);">facebook</a></li>
+											<li><a href="javascript:void(0);">Instagram</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-2"></div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom text-md-center text-md-center bg-light">
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-12">
+							<div class="footer-inner text-center">
+								<p class="copyright-text wow fadeInUp" data-wow-delay="2.4s">
+									Copyright 2024 by
+									<a class="text-primary" href="https://localhost:8000/" target="_blank">Job</a>. All
+									rights Reserved
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- Footer End -->
+
+		<button class="scroltop icon-up" type="button">
+			<i class="fas fa-arrow-up"></i>
+		</button>
+	</div>
+	<script>
+		window.onload = function () {
+			getLocation();
+		};
+
+		function getLocation() {
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition, showError);
+			} else {
+				document.getElementById("location").value =
+					"Geolocation is not supported by this browser.";
+			}
+		}
+
+		function showPosition(position) {
+			var lat = position.coords.latitude;
+			var lon = position.coords.longitude;
+			var url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`;
+
+			fetch(url)
+				.then((response) => response.json())
+				.then((data) => {
+					if (data.address) {
+						var locationString = "";
+						if (data.address.city) {
+							locationString += data.address.city + ", ";
+						}
+						if (data.address.state) {
+							locationString += data.address.state + ", ";
+						}
+						if (data.address.country) {
+							locationString += data.address.country + ", ";
+						}
+						if (data.address.neighbourhood) {
+							locationString += data.address.neighbourhood;
+						}
+						document.getElementById("location").value = locationString;
+					} else {
+						document.getElementById("location").value = "No results found";
+					}
+				})
+				.catch((error) => {
+					document.getElementById("location").value =
+						"Geocoder failed due to: " + error;
+				});
+		}
+
+		function showError(error) {
+			switch (error.code) {
+				case error.PERMISSION_DENIED:
+					document.getElementById("location").value =
+						"User denied the request for Geolocation.";
+					break;
+				case error.POSITION_UNAVAILABLE:
+					document.getElementById("location").value =
+						"Location information is unavailable.";
+					break;
+				case error.TIMEOUT:
+					document.getElementById("location").value =
+						"The request to get user location timed out.";
+					break;
+				case error.UNKNOWN_ERROR:
+					document.getElementById("location").value =
+						"An unknown error occurred.";
+					break;
+			}
+		}
+	</script>
+	<!-- JAVASCRIPT FILES ========================================= -->
+	<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+	<!-- JQUERY.MIN JS -->
+	<script src="{% static 'assets/js/anm.js' %}"></script>
+	<!-- JQUERY.MIN JS -->
+	<script src="{% static 'assets/vendor/wow/wow.js' %}"></script>
+	<!-- WOW.JS -->
+	<script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+	<!-- OWL silder -->
+	<script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+	<!-- WOW.JS -->
+	<script src="{% static 'assets/vendor/magnific-popup/magnific-popup.js' %}"></script>
+	<!-- OWL SLIDER -->
+	<script src="{% static 'assets/js/dz.carousel.js' %}"></script>
+	<!-- OWL SLIDER -->
+	<script src="{% static 'assets/js/dz.ajax.js' %}"></script>
+	<!-- AJAX -->
+	<script src="{% static 'assets/js/custom.js' %}"></script>
+	<!-- CUSTOM JS -->
+	<!--  <script src="{% static 'assets/vendor/switcher/switcher.js' %}"></script>SWITCHER -->
+	<script src="{% static 'assets/vendor/rangeslider/rangeslider.js' %}"></script>
+	<!-- RANGESLIDER -->
+</body>
+
+</html>

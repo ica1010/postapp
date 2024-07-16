@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="page-content">
+    <!-- Banner  -->
+    <div class="dz-bnr-inr dz-bnr-inr-sm text-center overlay-primary-dark" style="background-image: url(assets/images/banner/bnr2.jpg);">
+        <div class="container">
+            <div class="dz-bnr-inr-entry">
+                <h1>Search</h1>
+                <nav aria-label="breadcrumb" class="breadcrumb-row m-t15">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index.html">Search</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{job_title}}</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+
+    <!-- blog-list section start -->
+    <section class="content-inner bg-white position-relative">
+        <div class="container">
+            <div class="row ">
+                <div class="col-xl-4 col-lg-4">
+                    <aside class="side-bar sticky-top right">
+                    <div class="widget">
+                            <div class="widget-title">
+                                <h4 class="title">Search</h4>
+                            </div>
+                            <div class="search-bx">
+                                <form role="search"  action="{% url 'job-search' %}" method="get">
+                                    <div class="input-group">
+                                            <input name="title" value="{{job_title}}" class="form-control style-1" placeholder="Search.." type="text">
+                                            <input type="hidden" value="{{locality}}" name="location">
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-primary sharp radius-no"><i class="fa-solid fa-magnifying-glass scale3"></i></button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- <div class="widget recent-posts-entry">
+                            <div class="widget-title">
+                                <h4 class="title">Recent Post</h4>
+                            </div>
+                            <div class="widget-post-bx">
+                                <div class="widget-post clearfix">
+                                    <div class="dz-media">
+                                        <img src="{% static 'assets/images/blog/small/pic1.jpg' %}" alt="">
+                                    </div>
+                                    <div class="dz-info">
+                                        <h6 class="title"><a href="blog-details.html">Equipment you can count on. People you can trust.</a></h6>
+                                        <div class="dz-meta">
+                                            <ul>
+                                                <li class="post-date"><a href="javascript:void(0);"> 17 May 2022</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-post clearfix">
+                                    <div class="dz-media">
+                                        <img src="{% static 'assets/images/blog/small/pic2.jpg' %}" alt="">
+                                    </div>
+                                    <div class="dz-info">
+                                        <h6 class="title"><a href="blog-details.html">Advanced Service Functions by Air Transport</a></h6>
+                                        <div class="dz-meta">
+                                            <ul>
+                                                <li class="post-date"><a href="javascript:void(0);"> 07 Jan, 2022</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-post clearfix">
+                                    <div class="dz-media">
+                                        <img src="{% static 'assets/images/blog/small/pic3.jpg' %}" alt="">
+                                    </div>
+                                    <div class="dz-info">
+                                        <h6 class="title"><a href="blog-details.html">Proper arrangement for keeping the goods in the warehouse</a></h6>
+                                        <div class="dz-meta">
+                                            <ul>
+                                                <li class="post-date"><a href="javascript:void(0);"> 25 Aug, 2022</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <div class="widget widget_tag_cloud">
+                            <div class="widget-title">
+                                <h4 class="title">Popular Tags</h4>
+                            </div>
+                            <div class="tagcloud">
+                                <a href="javascript:void(0);">General</a>
+                                <a href="javascript:void(0);">Payment</a>
+                                <a href="javascript:void(0);">Jobs </a>
+                                <a href="javascript:void(0);">Application</a>
+                                <a href="javascript:void(0);">Work</a>
+                                <a href="javascript:void(0);">Recruiting</a>
+                                <a href="javascript:void(0);">Income</a>
+                                <a href="javascript:void(0);">Employer</a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+                <div class="col-xl-8 col-lg-8">
+                    <div class="row">
+                
+                        {% for job in job %}
+                        <div class="col-xl-6 col-md-6">
+                            <div class="job-bx style-1 wow fadeInUp" data-wow-delay="1.0s">
+                                <div class="d-flex m-b25 justify-content-between">
+                                    <span class="media">
+                                        <img src="{{job.image.url}}" alt="image">
+                                    </span>
+                                    <ul>
+                                        <li><a class="job-day" href="javascript:void(0);">{{job.timeago}} </a></li>
+                                        <li><a class="job-time" href="javascript:void(0);">{{job.type}}</a></li>
+                                    </ul>
+                                </div>
+                                <div class="job-contant">
+                                    <h6 class="job-title "><a href="{% url 'job-detail' job.jid %}">{{job.title}}</a></h6>
+                                    <p class="text">{{job.locality}}</p>
+                                </div>
+                                <div class="jobs-amount">
+                                    {% if job.is_salary_alpha %}
+                                            <div class="amount">{{job.salary}} <span>/ Month</span></div>
+                                            {% else %}
+                                            <h6 class="amount">{{job.salary}}</h6>
+                                            {% endif %}
+                                    
+                                    <a class="btn btn-primary" href="{% url 'job-detail' job.jid %}"><i class="fa-solid fa-chevron-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+             
+            </div>
+        </div>
+    </section>
+    <!-- blog-list section start -->
+
+
+</div>
+{% endblock body %}

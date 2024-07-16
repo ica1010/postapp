@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="page-content">
+    <!-- Banner  -->
+    <div class="dz-bnr-inr dz-bnr-inr-sm text-center overlay-primary-dark" style="background-image: url(assets/images/banner/bnr2.jpg);">
+        <div class="container">
+            <div class="dz-bnr-inr-entry">
+                <h1>Categories</h1>
+                <nav aria-label="breadcrumb" class="breadcrumb-row m-t15">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Categories</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Banner End -->
+
+
+    <!-- blog-list section start -->
+    <section class="content-inner overflow-hidden position-relative">
+		<div class="container">
+			<div class="row">
+				
+				{% for category in category %}
+				<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+					<div class="icon-bx-wraper style-2 text-center wow fadeInUp" data-wow-delay="1.0s" >
+						<div class="icon-media">
+							<svg class="mb-3" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 71 71">
+							  <g transform="translate(-457 -443)">
+								<rect width="71" height="71" rx="12" transform="translate(457 443)" fill="#c5c5c5"></rect>
+								<g transform="translate(457 443)">
+								  <rect data-name="placeholder" width="71" height="71" rx="12" fill="#2769ee"></rect>
+								  <circle data-name="Ellipse 12" cx="18" cy="18" r="18" transform="translate(15 20)" fill="#fff"></circle>
+								  <circle data-name="Ellipse 11" cx="11" cy="11" r="11" transform="translate(36 15)" fill="#ffe70c" style="mix-blend-mode: multiply;isolation: isolate"></circle>
+								</g>
+							  </g>
+							</svg>
+						</div>
+						<div class="icon-content">
+							<h5 class="fs-20 mb-0"><a href="{% url 'cat-job' category.cid %}">{{category.title}}</a></h5>
+							<p class="text"><a href="{% url 'cat-job' category.cid %}">{{category.category.count}}+Posted New Jobs</a></p>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+    <!-- blog-list section start -->
+
+
+</div>
+{% endblock body %}

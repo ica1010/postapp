@@ -1,0 +1,499 @@
+{% extends 'base.html' %} {% load static %} {% block body %}
+<div class="page-content">
+  <!-- Banner  -->
+  <div
+    class="dz-bnr-inr dz-bnr-inr-sm text-center overlay-primary-dark"
+    style="background-image: url(assets/images/banner/bnr3.jpg)"
+  >
+    <div class="container">
+      <div class="dz-bnr-inr-entry">
+        <h1>Blog Details</h1>
+        <nav aria-label="breadcrumb" class="breadcrumb-row m-t15">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Blog Details
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <!-- Banner End -->
+
+  <!-- Blog Details -->
+  <section class="content-inner position-relative" style="background: white">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-8 col-lg-8">
+          <div class="blog-single pt-20 sidebar dz-card">
+            <div class="dz-media dz-media-rounded rounded">
+              <img
+                src="{{post.image.url}}"
+                alt=""
+              />
+            </div>
+            <div class="dz-info m-b30">
+              <div class="dz-meta">
+                <ul>
+                  <li class="post-author">
+                    <a href="javascript:void(0);">
+                      <img
+                        src="{% static 'assets/images/avatar/avatar3.jpg' %}"
+                        alt=""
+                      />
+                      <span>By {{post.author}}</span>
+                    </a>
+                  </li>
+                  <li class="post-date">
+                    <a href="javascript:void(0);">{{post.publication_date| date:'d M Y'}}</a>
+                  </li>
+                  <!-- <li class="post-comment">
+                    <a href="javascript:void(0);">3 comment</a>
+                  </li> -->
+                </ul>
+              </div>
+              <h3 class="dz-title" style="text-transform: uppercase;">
+                {{post.title}}
+              </h3>
+              <div class="dz-post-text">
+              {{ post.description|safe }}
+              </div>
+              <div class="dz-share-post">
+                <div class="post-tags">
+                  <h6 class="m-b0 m-r10 d-inline">Tags:</h6>
+                  
+                  {% for tag in post.tag.all %}
+                  <a href="javascript:void(0);"><span>{{tag}}</span></a>
+                  {% endfor %}
+                    
+                </div>
+                <div class="dz-social-icon dark">
+                  <ul>
+                    <li>
+                      <a
+                        target="_blank"
+                        class="fab fa-facebook-f"
+                        href="https://www.facebook.com/dexignzone/"
+                      ></a>
+                    </li>
+                    <li>
+                      <a
+                        target="_blank"
+                        class="fab fa-instagram"
+                        href="https://www.instagram.com/dexignzone/"
+                      ></a>
+                    </li>
+                    <li>
+                      <a
+                        target="_blank"
+                        class="fab fa-twitter"
+                        href="https://twitter.com/dexignzones"
+                      ></a>
+                    </li>
+                    <li>
+                      <a
+                        target="_blank"
+                        class="fab fa-youtube"
+                        href="https://www.youtube.com/channel/UCGL8V6uxNNMRrk3oZfVct1g"
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="widget-title">
+            <h4 class="title">Related Blog</h4>
+          </div>
+          <div class="row m-b30 m-sm-b10">
+            <div class="col-md-6 col-xl-6 m-b30">
+              <div
+                class="dz-card style-1 overlay-shine wow fadeInUp"
+                data-wow-delay="1.0s"
+              >
+                <div class="dz-media">
+                  <a href="blog-details.html"
+                    ><img
+                      src="{% static 'assets/images/blog/pic6.jpg' %}"
+                      alt=""
+                  /></a>
+                  <span class="date"
+                    ><a href="javascript:void(0)">18 Mar 2010</a></span
+                  >
+                </div>
+                <div class="dz-info">
+                  <div class="dz-meta">
+                    <ul>
+                      <li class="post-author text-primary">
+                        <span>
+                          <i class="fa-solid fa-user"></i>
+                        </span>
+                        By Kk Sharma
+                      </li>
+                      <li class="post-date text-primary">
+                        <span>
+                          <i class="fa-solid fa-message"></i>
+                        </span>
+                        24 Comments
+                      </li>
+                    </ul>
+                  </div>
+                  <h4 class="dz-title">
+                    <a href="blog-details.html"
+                      >5 Reasons Why You Should Invest In Jobs.</a
+                    >
+                  </h4>
+                  <p>
+                    A wonderful serenity has taken of my entire soul, like
+                    these.
+                  </p>
+                  <a href="blog-details.html" class="btn btn-primary"
+                    >Read More</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-xl-6 m-b30">
+              <div
+                class="dz-card style-1 overlay-shine wow fadeInUp"
+                data-wow-delay="1.0s"
+              >
+                <div class="dz-media">
+                  <a href="blog-details.html"
+                    ><img
+                      src="{% static 'assets/images/blog/pic5.jpg' %}"
+                      alt=""
+                  /></a>
+                  <span class="date"
+                    ><a href="javascript:void(0)">26 May 2012</a></span
+                  >
+                </div>
+                <div class="dz-info">
+                  <div class="dz-meta">
+                    <ul>
+                      <li class="post-author text-primary">
+                        <span>
+                          <i class="fa-solid fa-user"></i>
+                        </span>
+                        By Kk Sharma
+                      </li>
+                      <li class="post-date text-primary">
+                        <span>
+                          <i class="fa-solid fa-message"></i>
+                        </span>
+                        24 Comments
+                      </li>
+                    </ul>
+                  </div>
+                  <h4 class="dz-title">
+                    <a href="blog-details.html">
+                      Jobs You Should Answer Truthfully.</a
+                    >
+                  </h4>
+                  <p>
+                    A wonderful serenity has taken of my entire soul, like
+                    these.
+                  </p>
+                  <a href="blog-details.html" class="btn btn-primary"
+                    >Read More</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Comment List -->
+          <div class="clear" id="comment-list">
+            <div class="comments-area" id="comments">
+              <div class="widget-title style-1">
+                <h4 class="title">Comments</h4>
+              </div>
+              <div class="clearfix">
+                <!-- comment list END -->
+                <ol class="comment-list">
+                  <li class="comment">
+                    <div class="comment-body">
+                      <div class="comment-author vcard">
+                        <img
+                          class="avatar photo"
+                          src="{% static 'assets/images/avatar/avatar1.jpg' %}"
+                          alt=""
+                        />
+                        <cite class="fn">Celesto Anderson</cite>
+                      </div>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua.
+                      </p>
+                      <div class="reply">
+                        <a href="javascript:void(0);" class="comment-reply-link"
+                          ><i class="fa fa-reply"></i>Reply</a
+                        >
+                      </div>
+                    </div>
+                    <ol class="children">
+                      <li class="comment odd parent">
+                        <div class="comment-body">
+                          <div class="comment-author vcard">
+                            <img
+                              class="avatar photo"
+                              src="{% static 'assets/images/avatar/avatar2.jpg' %}"
+                              alt=""
+                            />
+                            <cite class="fn">Jake Johnson</cite>
+                          </div>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua.
+                          </p>
+                          <div class="reply">
+                            <a
+                              href="javascript:void(0);"
+                              class="comment-reply-link"
+                              ><i class="fa fa-reply"></i>Reply</a
+                            >
+                          </div>
+                        </div>
+                        <!-- list END -->
+                      </li>
+                    </ol>
+                    <!-- list END -->
+                  </li>
+                  <li class="comment">
+                    <div class="comment-body">
+                      <div class="comment-author vcard">
+                        <img
+                          class="avatar photo"
+                          src="{% static 'assets/images/avatar/avatar3.jpg' %}"
+                          alt=""
+                        />
+                        <cite class="fn">John Doe</cite>
+                      </div>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua.
+                      </p>
+                      <div class="reply">
+                        <a href="javascript:void(0);" class="comment-reply-link"
+                          ><i class="fa fa-reply"></i>Reply</a
+                        >
+                      </div>
+                    </div>
+                  </li>
+                  <li class="comment">
+                    <div class="comment-body">
+                      <div class="comment-author vcard">
+                        <img
+                          class="avatar photo"
+                          src="{% static 'assets/images/avatar/avatar1.jpg' %}"
+                          alt=""
+                        />
+                        <cite class="fn">Celesto Anderson</cite>
+                      </div>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua.
+                      </p>
+                      <div class="reply">
+                        <a href="javascript:void(0);" class="comment-reply-link"
+                          ><i class="fa fa-reply"></i>Reply</a
+                        >
+                      </div>
+                    </div>
+                  </li>
+                </ol>
+                <!-- comment list END -->
+
+                <!-- Form -->
+                <div class="comment-respond" id="respond">
+                  <div class="widget-title style-1">
+                    <h4 class="title" id="reply-title">
+                      Leave Your Comment
+                      <small
+                        ><a
+                          style="display: none"
+                          href="javascript:void(0);"
+                          id="cancel-comment-reply-link"
+                          rel="nofollow"
+                          >Cancel reply</a
+                        ></small
+                      >
+                    </h4>
+                  </div>
+                  <form class="comment-form" id="commentform" method="post">
+                    <p class="comment-form-author">
+                      <label for="author"
+                        >Name <span class="required">*</span></label
+                      >
+                      <input
+                        type="text"
+                        name="Author"
+                        placeholder="Author"
+                        id="author"
+                      />
+                    </p>
+                    <p class="comment-form-email">
+                      <label for="email"
+                        >Email <span class="required">*</span></label
+                      >
+                      <input
+                        type="text"
+                        placeholder="Email"
+                        name="email"
+                        id="email"
+                      />
+                    </p>
+                    <p class="comment-form-comment">
+                      <label for="comment">Comment</label>
+                      <textarea
+                        rows="8"
+                        name="comment"
+                        placeholder="Comment"
+                        id="comment"
+                      ></textarea>
+                    </p>
+                    <p class="form-submit">
+                      <button type="submit" class="btn btn-primary" id="submit">
+                        SUBMIT
+                      </button>
+                    </p>
+                  </form>
+                </div>
+                <!-- Form -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4">
+          <aside class="side-bar sticky-top right">
+            
+
+            <div class="widget widget_categories">
+              <div class="widget-title">
+                <h4 class="title">Categories</h4>
+              </div>
+              <ul>
+                <li class="cat-item">
+                  <a href="blog-details.html#">Categories(10)</a>
+                </li>
+                <li class="cat-item">
+                  <a href="blog-details.html#">Education(13)</a>
+                </li>
+                <li class="cat-item">
+                  <a href="blog-details.html#">Information(9)</a>
+                </li>
+                <li class="cat-item">
+                  <a href="blog-details.html#">Jobs(3)</a>
+                </li>
+                <li class="cat-item">
+                  <a href="blog-details.html#">Learn(12)</a>
+                </li>
+                <li class="cat-item">
+                  <a href="blog-details.html#">Skill(6)</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="widget recent-posts-entry">
+              <div class="widget-title">
+                <h4 class="title">Recent Post</h4>
+              </div>
+              <div class="widget-post-bx">
+                <div class="widget-post clearfix">
+                  <div class="dz-media">
+                    <img
+                      src="{% static 'assets/images/blog/small/pic1.jpg' %}"
+                      alt=""
+                    />
+                  </div>
+                  <div class="dz-info">
+                    <h6 class="title">
+                      <a href="blog-details.html"
+                        >Equipment you can count on. People you can trust.</a
+                      >
+                    </h6>
+                    <div class="dz-meta">
+                      <ul>
+                        <li class="post-date">
+                          <a href="javascript:void(0);"> 17 May 2022</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="widget-post clearfix">
+                  <div class="dz-media">
+                    <img
+                      src="{% static 'assets/images/blog/small/pic2.jpg' %}"
+                      alt=""
+                    />
+                  </div>
+                  <div class="dz-info">
+                    <h6 class="title">
+                      <a href="blog-details.html"
+                        >Advanced Service Functions by Air Transport</a
+                      >
+                    </h6>
+                    <div class="dz-meta">
+                      <ul>
+                        <li class="post-date">
+                          <a href="javascript:void(0);"> 07 Jan, 2022</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="widget-post clearfix">
+                  <div class="dz-media">
+                    <img
+                      src="{% static 'assets/images/blog/small/pic3.jpg' %}"
+                      alt=""
+                    />
+                  </div>
+                  <div class="dz-info">
+                    <h6 class="title">
+                      <a href="blog-details.html"
+                        >Proper arrangement for keeping the goods in the
+                        warehouse</a
+                      >
+                    </h6>
+                    <div class="dz-meta">
+                      <ul>
+                        <li class="post-date">
+                          <a href="javascript:void(0);"> 25 Aug, 2022</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="widget widget_tag_cloud">
+              <div class="widget-title">
+                <h4 class="title">Popular Tags</h4>
+              </div>
+              <div class="tagcloud">
+                <a href="javascript:void(0);">General</a>
+                <a href="javascript:void(0);">Payment</a>
+                <a href="javascript:void(0);">Jobs </a>
+                <a href="javascript:void(0);">Application</a>
+                <a href="javascript:void(0);">Work</a>
+                <a href="javascript:void(0);">Recruiting</a>
+                <a href="javascript:void(0);">Income</a>
+                <a href="javascript:void(0);">Employer</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Blog Details -->
+</div>
+{% endblock body %}

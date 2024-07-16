@@ -1,0 +1,106 @@
+{% extends 'admin-base.html' %} {% load static %} {% block adminblock %}
+
+<style>
+    .avatar-container {
+    height: 300px !important;
+    width: 100% !important;
+    max-width: 300px !important;
+}
+
+.avatar-preview {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.avatar-image {
+    height: 100% !important;
+    width: 100% !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+</style>
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Admin</a></li>
+                <li class="breadcrumb-item active">
+                    <a href="javascript:void(0)">Add Job</a>
+                </li>
+            </ol>
+        </div>
+        {% if messages %}
+                            
+        {% for message in messages  %}
+        <div class="page-titles">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">
+                    <a href="javascript:void(0)">{{message}}</a>
+                </li>
+            </ol>
+        </div>
+        {% endfor %}
+    
+        {% endif %}
+
+            <div class="d-flex"  style="justify-content: center;">
+                <form class="row" action="{% url 'addjob' %}" method="post">
+                    {% csrf_token %}
+                    <div class="col-xl-12">
+                        
+                        <div class="card h-auto">
+                            <div class="card-body row">
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Job title</label>
+                                    <input type="text" class="form-control" name="title" placeholder="Job title" />
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <label class="form-label">Category</label>
+                                    <select class="disabling-options" style="width:100%;" name="category">
+                                        {% for cat in cat %}
+                                        <option value="{{cat.title}}">{{cat.title}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card h-auto">
+                            <div class="card-body">
+                       
+                                <div class="avatar-upload d-flex align-items-center justify-content-center" >
+                                    <div class="position-relative"  style="width: 70%;height: 300px;">
+                                        <div class="avatar-preview">
+                                            <div id="imagePreview" style='height: 100%; background-image: url({% static "images/no-img-avatar.png" %});'></div>
+                                        </div >
+                                        <div class="change-btn d-flex align-items-center flex-wrap">
+                                            <input type="file" class="form-control d-none" id="imageUpload"
+                                                accept=".png, .jpg, .jpeg"  value="{% static "images/no-img-avatar.png" %}" name="image" />
+                                            <label for="imageUpload"
+                                                class="btn btn-sm btn-primary light ms-0">Select Image</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body custom-ekeditor">
+                                    <label class="form-label mt-5">Description</label>
+                                    <textarea id="ckeditor" name="description" ></textarea>
+
+                                    <label class="form-label mt-5">Tags</label>
+                                    <select id="multi-value-select" style="width:100%;" name="tag" multiple="multiple">
+                                      
+                                    </select>
+                                </div>
+                               
+                             </div>
+                        </div>
+                        <div class="btn-primary btn">Submit</div>
+                    </div>
+                   
+                </form>
+            </div>
+    </div>
+</div> 
+
+
+{% endblock adminblock %}

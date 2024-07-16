@@ -1,0 +1,71 @@
+@font-face {
+    font-family: "flaticon_zenix";
+    src: url("flaticon_zenix.ttf%3F7cdf471f2c4f568d97ef221d5b81f13f") format("truetype"),
+url("flaticon_zenix.woff%3F7cdf471f2c4f568d97ef221d5b81f13f") format("woff"),
+url("flaticon_zenix.woff2%3F7cdf471f2c4f568d97ef221d5b81f13f") format("woff2"),
+url("flaticon_zenix.eot%3F7cdf471f2c4f568d97ef221d5b81f13f") format("embedded-opentype"),
+url("flaticon_zenix.svg%3F7cdf471f2c4f568d97ef221d5b81f13f") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon_zenix !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-coin-stack:before {
+    content: "\f101";
+}
+.flaticon-shield:before {
+    content: "\f102";
+}
+.flaticon-transaction:before {
+    content: "\f103";
+}
+.flaticon-checked:before {
+    content: "\f104";
+}
+.flaticon-chart:before {
+    content: "\f105";
+}
+.flaticon-box:before {
+    content: "\f106";
+}
+.flaticon-checked-1:before {
+    content: "\f107";
+}
+.flaticon-molecule:before {
+    content: "\f108";
+}
+.flaticon-bitcoin:before {
+    content: "\f109";
+}
+.flaticon-wallet:before {
+    content: "\f10a";
+}
+.flaticon-ethereum:before {
+    content: "\f10b";
+}
+.flaticon-bitcoin-1:before {
+    content: "\f10c";
+}
+.flaticon-digital-wallet:before {
+    content: "\f10d";
+}
+.flaticon-blockchain:before {
+    content: "\f10e";
+}
+.flaticon-digital-investment:before {
+    content: "\f10f";
+}
+.flaticon-data-management:before {
+    content: "\f110";
+}
+.flaticon-trend:before {
+    content: "\f111";
+}

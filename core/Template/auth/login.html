@@ -1,0 +1,62 @@
+
+{% load static %}
+<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<div class="fix-wrapper">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-6">
+                <div class="card mb-0 h-auto">
+                    <div class="card-body">
+                   
+                        <h4 class="text-center mb-4">Sign in your account</h4>
+                        {% if messages %}
+                            
+                        {% for message in messages  %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                            
+                    {% endif %}
+                        <form action="{% url 'login' %}" method="post">
+                            {% csrf_token %}
+                            <div class="form-group mb-4">
+                                <label class="form-label" for="username">Username</label>
+                                <input type="text" class="form-control" placeholder="Enter username" name="username" id="username">
+                            </div>
+                            <div class="mb-sm-4 mb-3 position-relative">
+                                <label class="form-label" for="dlab-password">Password</label>
+                                <input type="password" name="password" id="dlab-password" class="form-control" value="">
+                                <span class="show-pass eye">
+                                    <i class="fa fa-eye-slash"></i>
+                                    <i class="fa fa-eye"></i>
+                                </span>
+                            </div>
+                            <div class="form-row d-flex flex-wrap justify-content-between mb-2">
+                                <div class="form-group mb-sm-4 mb-1">
+                                    <div class="form-check custom-checkbox ms-1">
+                                        <input type="checkbox" class="form-check-input" id="basic_checkbox_1">
+                                        <label class="form-check-label" for="basic_checkbox_1">Remember my preference</label>
+                                    </div>
+                                </div>
+                                <div class="form-group ms-2">
+                                    <a class="text-hover" href="page-forgot-password.html">Forgot Password?</a>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                            </div>
+                        </form>
+                        <div class="new-account mt-3">
+                            <p>Don't have an account? <a class="text-primary" href="{% url 'register' %}">Sign up</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'vendor/global/global.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'js/custom.min.js' %}"></script>
+<script src="{% static 'js/dlabnav-init.js' %}"></script>

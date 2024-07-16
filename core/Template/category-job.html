@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="page-content">
+    <!-- Banner  -->
+        <div class="dz-bnr-inr dz-bnr-inr-sm text-center overlay-primary-dark" style="background-image: url(assets/images/banner/bnr1.jpg);">
+            <div class="container">
+                <div class="dz-bnr-inr-entry">
+                    <h1>{{cat.title}}</h1>
+                    <!-- Breadcrumb Row -->
+                    <nav aria-label="breadcrumb" class="breadcrumb-row m-t15">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">{{cat.title}}</li>
+                        </ul>
+                    </nav>
+                    <!-- Breadcrumb Row End -->
+                </div>
+            </div>
+        </div>
+        <!-- Banner End -->
+    
+    <section class="content-inner overflow-hidden position-relative">
+        <div class="container">
+            <div class="row">
+             
+             {% for post in post %}
+             <div class="col-xl-4 col-md-6  m-b30">
+                <div class="dz-card style-1 overlay-shine wow fadeInUp" data-wow-delay="1.2s">
+                    <div class="dz-media">
+                        <a href="{% url 'job-detail' post.jid %}"><img src="{{post.image.url}}" alt=""></a>
+                        <span class="date"><a href="javascript:void(0)">18 Jun 2020</a></span>
+                    </div>
+                    <div class="dz-info">
+                        <div class="dz-meta">
+                            <ul>
+                                <li class="post-author text-primary">
+                                    <span>
+                                        <i class="fa-solid fa-user"></i>
+                                    </span>
+                                    By {{post.author}}</li>
+                                <li class="post-date text-primary">
+                                    <span>
+                                        <i class="fa-solid fa-message"></i>
+                                    </span>
+                                24 Comments</li>
+                            </ul>
+                        </div>
+                        <h4 class="dz-title"><a href="{% url 'job-detail' post.jid %}">{{post.title}}</a></h4>
+                        <p>{{post.description|truncatewords:"10" }}</p>
+                        <a href="{% url 'job-detail' post.jid %}" class="btn btn-primary">Read More</a>
+                    </div>
+                </div>
+            </div>
+             {% endfor %}
+                
+            </div>
+        </div>	
+    </section>
+
+</div>
+{% endblock body %}

@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<div class="page-content">
+		
+    <!-- Banner  -->
+    <div class="dz-bnr-inr dz-bnr-inr-sm text-center overlay-primary-dark" style="background-image: url(assets/images/banner/bnr1.jpg);">
+        <div class="container">
+            <div class="dz-bnr-inr-entry">
+                <h1>Blog Grid</h1>
+                <!-- Breadcrumb Row -->
+                    <nav aria-label="breadcrumb" class="breadcrumb-row m-t15">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Blog Grid</li>
+                        </ul>
+                    </nav>
+                <!-- Breadcrumb Row End -->
+            </div>
+        </div>
+    </div>
+    <!-- Banner End -->
+        
+    <!-- Blog Grid Starts -->
+    <section class="content-inner position-relative">
+        <div class="container">
+            <div class="row">
+             
+                {% for post in post %}
+                <div class="col-xl-4 col-md-6  m-b30">
+                   <div class="dz-card style-1 overlay-shine wow fadeInUp" data-wow-delay="1.0s">
+                       <div class="dz-media">
+                           <a href="{% url 'job-detail' post.jid %}"><img src="{{post.image.url}}"></a>
+                           <span class="date"><a href="javascript:void(0)">{{post.publication_date|date:'d M Y'}}</a></span>
+                       </div>
+                       <div class="dz-info">
+                           <div class="dz-meta">
+                               <ul>
+                                   <li class="post-author text-primary">
+                                       <span>
+                                           <i class="fa-solid fa-user"></i>
+                                       </span>
+                                       By {{post.author}}</li>
+                                   <!-- <li class="post-date text-primary">
+                                       <span>
+                                           <i class="fa-solid fa-message"></i>
+                                       </span>
+                                   24 Comments</li> -->
+                               </ul>
+                           </div>
+                           <h4 class="dz-title" style="text-transform: uppercase;"><a href="{% url 'job-detail' post.jid %}">{{post.title}}</a></h4>
+                           <p>{{post.description|truncatechars:50}}</p>
+                           <a href="{% url 'job-detail' post.jid %}" class="btn btn-primary">Read More</a>
+                       </div>
+                   </div>
+               </div>
+                {% endfor %}
+                   
+              
+                       
+               </div>
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 m-b30 m-t30 m-lg-t10">
+                    <nav aria-label="Blog Pagination">
+                        <ul class="pagination style-1 text-center  wow fadeInUp" data-wow-delay="0.8s">
+                            <li class="page-item"><a class="page-link prev" href="javascript:void(0);"><i class="fas fa-chevron-left"></i></a></li>
+                            <li class="page-item"><a class="page-link active" href="javascript:void(0);">1</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+                            <li class="page-item"><a class="page-link next" href="javascript:void(0);"><i class="fas fa-chevron-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>	
+    </section>
+    <!-- blog grid code starts from here -->
+                
+</div>
+{% endblock body %}
