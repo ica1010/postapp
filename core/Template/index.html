@@ -2,12 +2,18 @@
 {% load static %}
 
 {% block body %}
+<style>
+	blockquote{
+		margin: 0px !important;
+		padding: 0px !important;
+	}
+</style>
 <div class="page-content">
 
 	<div class="main-bnr bg-light">
 		<div class="container">
 			<div class="row align-items-center">
-				<div class="col-xl-7 col-lg-12 col-md-12">
+				<div class="col-xl-9 col-lg-12 col-md-12">
 					 <h6 class="sub-title wow fadeInUp" data-wow-delay="0.4s">We Have 208,000+ Live Jobs</h6>
 					<h1 class=" wow fadeInUp" id="text" data-wow-delay="0.6s">Your <span class=" text-primary">Dream</span> Job Is Waiting For You</h1>
 					<p class=" text text-primary wow fadeInUp font-w500" data-wow-delay="0.8s">Type your keywork, then click search to find your perfect job. </p>
@@ -29,11 +35,9 @@
 									</div>
 									<div class="col-lg-6 col-md-6 col-sm-6">
 										<div class="search-bar">
-											<span>
-												<i class="fa-solid fa-location-dot"></i>
-											</span>
+											
 											<div class="icon-content w-100">
-												<input name="location" required="required" id="location" class="form-control" placeholder="City Or Postcode" type="text">
+												<input name="location" required="required" class="form-control" placeholder="date" type="date">
 											</div>
 										</div>
 									</div>
@@ -54,7 +58,7 @@
 						<a href="javascript:void(0);">Etc.</a>
 					</h6> -->
 				</div>
-			 <div class="col-xl-5 col-lg-5 col-md-12">
+			 <div class="col-xl-3 col-lg-5 col-md-12">
 					<div class="banner-media">
 						<!-- <img class="media wow bounceInRight" data-wow-delay="1.4s" src="{% static 'assets/images/home-banner/media-men.png' %}" alt=""> -->
 						<ul class="bnr-blocks">
@@ -224,8 +228,8 @@
 								24 Comments</li> -->
 							</ul>
 						</div>
-						<h4 class="dz-title" style="text-transform: uppercase;"><a href="{% url 'job-detail' post.jid %}">{{post.title}}</a></h4>
-						<p>{{post.description|truncatechars:50}}</p>
+						<h4 class="dz-title" style="text-transform: uppercase;"><a href="{% url 'job-detail' post.jid %}">{{post.title|truncatechars:23}}</a></h4>
+						<p>{{post.description|safe|truncatechars:75}}</p>
 						<a href="{% url 'job-detail' post.jid %}" class="btn btn-primary">Read More</a>
 					</div>
 				</div>

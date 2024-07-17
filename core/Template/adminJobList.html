@@ -15,20 +15,16 @@
             <div class="col-lg-12">
                 <div class="profile card card-body px-3 pt-3 pb-0">
                     <div class="profile-head">
-                        <div class="photo-content">
-                            <div class="cover-photo rounded"></div>
-                        </div>
+                       
                         <div class="profile-info">
-                            <div class="profile-photo">
-                                <img src="{% static 'images/profile/profile.png' %}" class="img-fluid rounded-circle" alt="">
-                            </div>
+                        
                             <div class="profile-details">
                                 <div class="profile-name px-3 pt-2">
-                                    <h4 class="text-primary mb-0">Mitchell C. Shay</h4>
-                                    <p>UX / UI Designer</p>
+                                    <h4 class="text-primary mb-0">{{request.user.username}}</h4>
+                                    <!-- <p>UX / UI Designer</p> -->
                                 </div>
                                 <div class="profile-email px-2 pt-2">
-                                    <h4 class="text-muted mb-0">info@example.com</h4>
+                                    <h4 class="text-muted mb-0">{{request.user.email}}</h4>
                                     <p>Email</p>
                                 </div>
                                 <div class="dropdown ms-auto">
@@ -89,9 +85,8 @@
                 </div>
                 <div class="mb-4 pb-3">
                     <ul class="d-flex align-items-center flex-wrap">
-                        <li><a href="add-blog.html" class="btn btn-primary btn-sm">Add Blog</a></li>
-                        <li><a href="blog-category.html" class="btn btn-primary btn-sm mx-1">Blog Category</a></li>
-                        <li><a href="blog-category.html" class="btn btn-primary btn-sm mt-sm-0 mt-1">Add Blog Category</a></li>
+                        <li><a href="{% url 'addjob' %}" class="btn btn-primary btn-sm">Add an event</a></li>
+                      
                     </ul>
                 </div>
                 <div class="filter cm-content-box box-primary">
@@ -140,7 +135,7 @@
                                             </td>
                                             <td style="width: max-content !important;min-width: 100px;">{{post.publication_date|date:'d, M Y'}}</td>
                                             <td class="text-nowrap">
-                                                <a href="javascript:void(0);" class="btn btn-warning btn-sm content-icon">
+                                                <a href="{% url 'editPost' post.jid %}" class="btn btn-warning btn-sm content-icon">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </a>
                                                 <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon">

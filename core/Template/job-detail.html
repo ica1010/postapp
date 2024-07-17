@@ -37,13 +37,18 @@
               <div class="dz-meta">
                 <ul>
                   <li class="post-author">
+                   
+                   {% if request.user.username == post.author.user.username %}
+                   <a href="javascript:void(0);">
+                    <span>By You</span>
+                  </a>
+                    {% else %}
                     <a href="javascript:void(0);">
-                      <img
-                        src="{% static 'assets/images/avatar/avatar3.jpg' %}"
-                        alt=""
-                      />
+                      <span class="bg-dark text-ligth" style="padding: 10px 12px; border-radius: 50px;color: whitesmoke;font-weight: 700;">{{post.author|slice:":2"}}</span>
                       <span>By {{post.author}}</span>
                     </a>
+                   {% endif %}
+                    
                   </li>
                   <li class="post-date">
                     <a href="javascript:void(0);">{{post.publication_date| date:'d M Y'}}</a>
@@ -378,24 +383,13 @@
                 <h4 class="title">Categories</h4>
               </div>
               <ul>
-                <li class="cat-item">
-                  <a href="blog-details.html#">Categories(10)</a>
-                </li>
-                <li class="cat-item">
-                  <a href="blog-details.html#">Education(13)</a>
-                </li>
-                <li class="cat-item">
-                  <a href="blog-details.html#">Information(9)</a>
-                </li>
-                <li class="cat-item">
-                  <a href="blog-details.html#">Jobs(3)</a>
-                </li>
-                <li class="cat-item">
-                  <a href="blog-details.html#">Learn(12)</a>
-                </li>
-                <li class="cat-item">
-                  <a href="blog-details.html#">Skill(6)</a>
-                </li>
+               
+               {% for cat in cat  %}
+               <li class="cat-item">
+                <a href="">{{cat.title}}({{cat.category.count}})</a>
+              </li>
+               {% endfor %}
+                
               </ul>
             </div>
 

@@ -64,8 +64,11 @@ def categoryJobPage(request, cid):
 
 def jobDetail(request, jid):
     post = Post.objects.get(jid=jid)
+    cat = Category.objects.all()
+
     context = {
-        'post':post
+        'post':post,
+        'cat':cat
     }
     return render(request, 'job-detail.html', context)
 
@@ -119,4 +122,42 @@ def addjob(request):
         'cat':cat,
     }
     return render(request, 'addjobalert.html', context)
+
+
+
+def editPost(request,jid):
+
+    url = request.META.get('HTTP_REFERER')
+    new_job = Post.objects.get(jid =jid)
+
+    cat = Category.objects.all()
+    if request.method == 'POST' :
+        job_title = request.POST['title']
+        category = request.POST['category']
+        description = request.POST['description']
+      
+        tags_l = request.POST.getlist('tags')
+
+        image = request.POST['image']
+        
+  
+        category_inst = Category.objects.get(title = category)
+        
+
+        new_job.title = job_title
+        new_job.image = image
+        new_job.category = category_inst
+        new_job.description = description
+
+        new_job.save()
+
+        if tags_l:
+            for tag in tags_l:
+               new_job.tag.add(tag)
+             
+    context = {
+        'cat':cat,
+        'post':new_job
+    }
+    return render(request, 'editpost.html', context)
 
