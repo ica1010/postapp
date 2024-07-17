@@ -98,7 +98,7 @@ def addjob(request):
       
         tags_l = request.POST.getlist('tags')
 
-        image = request.POST['image']
+        image = request.Files['image']
         
   
         category_inst = Category.objects.get(title = category)

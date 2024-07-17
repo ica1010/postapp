@@ -45,7 +45,7 @@
         {% endif %}
 
             <div class="d-flex"  style="justify-content: center;">
-                <form class="row" action="{% url 'addjob' %}" method="post">
+                <form class="row" action="{% url 'addjob' %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="col-xl-12">
                         
@@ -53,7 +53,7 @@
                             <div class="card-body row">
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Post title</label>
-                                    <input type="text" required class="form-control" name="title" placeholder="Post title" />
+                                    <input type="file" required class="form-control" name="title" placeholder="Post title" />
                                 </div>
 
                                 <div class="mb-3 col-md-6">
