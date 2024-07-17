@@ -45,7 +45,7 @@
         {% endif %}
 
             <div class="d-flex"  style="justify-content: center;">
-                <form class="row" action="{% url 'editPost' post.jid %}" method="post">
+                <form class="row" action="{% url 'editPost' post.jid %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="col-xl-12">
                         
@@ -91,18 +91,17 @@
                                     <textarea id="ckeditor" name="description">{{post.description}} </textarea>
 
                                     <label class="form-label mt-5">Tags</label>
-                                    <select id="multi-value-select" style="width:100%;" name="tag" multiple="multiple">
+                                    <select id="multi-value-select" style="width:100%;" name="tags" multiple="multiple">
                                       
                                       {% for tag in post.tag.all  %}
                                         <option value="{{tag}}" selected>{{tag}}</option>
                                       {% endfor %}
-                                        
                                     </select>
                                 </div>
                                
                              </div>
                         </div>
-                        <button type="submit" class="btn-primary btn">Update</button>type="submit" 
+                        <button type="submit" class="btn-primary btn">Update</button>
                     </div>
                    
                 </form>

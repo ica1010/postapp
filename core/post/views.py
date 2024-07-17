@@ -1,12 +1,17 @@
 from datetime import datetime
+from itertools import count
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 import requests
 from user.models import ProfileEmployeur
 from post.models import Category, Post
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 from django.contrib import messages
+from taggit.models import TaggedItem
+from django.db.models import Count
+
 from taggit.models import Tag
 # from visits.models import Visits
 # Create your views here.
@@ -65,10 +70,15 @@ def categoryJobPage(request, cid):
 def jobDetail(request, jid):
     post = Post.objects.get(jid=jid)
     cat = Category.objects.all()
+    related_post = Post.objects.filter(category = post.category).exclude(jid = jid)
+    fam_tag = Tag.objects.annotate(count=Count('taggit_taggeditem_items')).order_by('-count')[:10]
+
 
     context = {
         'post':post,
-        'cat':cat
+        'cat':cat,
+        'related_post':related_post,
+        'fam_tag':fam_tag,
     }
     return render(request, 'job-detail.html', context)
 
@@ -98,7 +108,7 @@ def addjob(request):
       
         tags_l = request.POST.getlist('tags')
 
-        image = request.Files['image']
+        image = request.FILES['image']
         
   
         category_inst = Category.objects.get(title = category)
@@ -138,14 +148,15 @@ def editPost(request,jid):
       
         tags_l = request.POST.getlist('tags')
 
-        image = request.POST['image']
+        image = request.FILES['image']
         
   
         category_inst = Category.objects.get(title = category)
         
 
         new_job.title = job_title
-        new_job.image = image
+        if image :
+            new_job.image = image
         new_job.category = category_inst
         new_job.description = description
 

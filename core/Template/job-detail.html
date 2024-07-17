@@ -7,12 +7,12 @@
   >
     <div class="container">
       <div class="dz-bnr-inr-entry">
-        <h1>Blog Details</h1>
+        <h1>{{post.title}}</h1>
         <nav aria-label="breadcrumb" class="breadcrumb-row m-t15">
           <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">
-              Blog Details
+              {{post.title}}
             </li>
           </ul>
         </nav>
@@ -65,6 +65,9 @@
               {{ post.description|safe }}
               </div>
               <div class="dz-share-post">
+                
+                {% if post.tag.all %}
+                         
                 <div class="post-tags">
                   <h6 class="m-b0 m-r10 d-inline">Tags:</h6>
                   
@@ -73,141 +76,97 @@
                   {% endfor %}
                     
                 </div>
+                {% endif %}
+           
                 <div class="dz-social-icon dark">
                   <ul>
-                    <li>
-                      <a
-                        target="_blank"
-                        class="fab fa-facebook-f"
-                        href="https://www.facebook.com/dexignzone/"
-                      ></a>
-                    </li>
-                    <li>
-                      <a
-                        target="_blank"
-                        class="fab fa-instagram"
-                        href="https://www.instagram.com/dexignzone/"
-                      ></a>
-                    </li>
-                    <li>
-                      <a
-                        target="_blank"
-                        class="fab fa-twitter"
-                        href="https://twitter.com/dexignzones"
-                      ></a>
-                    </li>
-                    <li>
-                      <a
-                        target="_blank"
-                        class="fab fa-youtube"
-                        href="https://www.youtube.com/channel/UCGL8V6uxNNMRrk3oZfVct1g"
-                      ></a>
-                    </li>
+                   
+                   {% if post.author.facebook %}
+                   <li>
+                    <a
+                      target="_blank"
+                      class="fab fa-facebook-f"
+                      href="{{post.author.facebook}}"
+                    ></a>
+                  </li>
+                   {% endif %}
+                    
+                   {% if post.author.instagram %}
+                   <li>
+                    <a
+                      target="_blank"
+                      class="fab fa-instagram"
+                      href="{{post.author.instagram}}"
+                    ></a>
+                  </li>
+                   {% endif %}
+
+                   {% if post.author.twitter %}
+                   <li>
+                    <a
+                      target="_blank"
+                      class="fab fa-twitter"
+                      href="{{post.author.twitter}}"
+                    ></a>
+                  </li>
+                   {% endif %}
+
+                   {% if post.author.youtube %}
+                   <li>
+                    <a
+                      target="_blank"
+                      class="fab fa-youtube"
+                      href="{{post.author.youtube}}"
+                    ></a>
+                  </li>
+                   {% endif %}
+                    
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-
+          
+          {% if related_post %}
           <div class="widget-title">
             <h4 class="title">Related Blog</h4>
           </div>
           <div class="row m-b30 m-sm-b10">
-            <div class="col-md-6 col-xl-6 m-b30">
-              <div
-                class="dz-card style-1 overlay-shine wow fadeInUp"
-                data-wow-delay="1.0s"
-              >
-                <div class="dz-media">
-                  <a href="blog-details.html"
-                    ><img
-                      src="{% static 'assets/images/blog/pic6.jpg' %}"
-                      alt=""
-                  /></a>
-                  <span class="date"
-                    ><a href="javascript:void(0)">18 Mar 2010</a></span
-                  >
-                </div>
-                <div class="dz-info">
-                  <div class="dz-meta">
-                    <ul>
-                      <li class="post-author text-primary">
-                        <span>
-                          <i class="fa-solid fa-user"></i>
-                        </span>
-                        By Kk Sharma
-                      </li>
-                      <li class="post-date text-primary">
-                        <span>
-                          <i class="fa-solid fa-message"></i>
-                        </span>
-                        24 Comments
-                      </li>
-                    </ul>
-                  </div>
-                  <h4 class="dz-title">
-                    <a href="blog-details.html"
-                      >5 Reasons Why You Should Invest In Jobs.</a
-                    >
-                  </h4>
-                  <p>
-                    A wonderful serenity has taken of my entire soul, like
-                    these.
-                  </p>
-                  <a href="blog-details.html" class="btn btn-primary"
-                    >Read More</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-xl-6 m-b30">
-              <div
-                class="dz-card style-1 overlay-shine wow fadeInUp"
-                data-wow-delay="1.0s"
-              >
-                <div class="dz-media">
-                  <a href="blog-details.html"
-                    ><img
-                      src="{% static 'assets/images/blog/pic5.jpg' %}"
-                      alt=""
-                  /></a>
-                  <span class="date"
-                    ><a href="javascript:void(0)">26 May 2012</a></span
-                  >
-                </div>
-                <div class="dz-info">
-                  <div class="dz-meta">
-                    <ul>
-                      <li class="post-author text-primary">
-                        <span>
-                          <i class="fa-solid fa-user"></i>
-                        </span>
-                        By Kk Sharma
-                      </li>
-                      <li class="post-date text-primary">
-                        <span>
-                          <i class="fa-solid fa-message"></i>
-                        </span>
-                        24 Comments
-                      </li>
-                    </ul>
-                  </div>
-                  <h4 class="dz-title">
-                    <a href="blog-details.html">
-                      Jobs You Should Answer Truthfully.</a
-                    >
-                  </h4>
-                  <p>
-                    A wonderful serenity has taken of my entire soul, like
-                    these.
-                  </p>
-                  <a href="blog-details.html" class="btn btn-primary"
-                    >Read More</a
-                  >
-                </div>
-              </div>
-            </div>
+               
+			 {% for post in related_post %}
+			 <div class="col-xl-6 col-md-6  m-b30">
+				<div class="dz-card style-1 overlay-shine wow fadeInUp" data-wow-delay="1.{{forloop.counter}}s">
+					<div class="dz-media">
+						<a href="{% url 'job-detail' post.jid %}"><img src="{{post.image.url}}"></a>
+						<span class="date"><a href="javascript:void(0)">{{post.publication_date|date:'d M Y'}}</a></span>
+					</div>
+					<div class="dz-info">
+						<div class="dz-meta">
+							<ul>
+								<li class="post-author text-primary">
+									<span>
+										<i class="fa-solid fa-user"></i>
+									</span>
+									By {{post.author}}</li>
+								<!-- <li class="post-date text-primary">
+									<span>
+										<i class="fa-solid fa-message"></i>
+									</span>
+								24 Comments</li> -->
+							</ul>
+						</div>
+						<h4 class="dz-title" style="text-transform: uppercase;"><a href="{% url 'job-detail' post.jid %}">{{post.title|truncatechars:23}}</a></h4>
+						<p>{{post.description|safe|truncatechars:75}}</p>
+						<a href="{% url 'job-detail' post.jid %}" class="btn btn-primary">Read More</a>
+					</div>
+				</div>
+			</div>
+			 {% endfor %}
+           
           </div>
+          {% endif %}
+            
+          
           <!-- Comment List -->
           <div class="clear" id="comment-list">
             <div class="comments-area" id="comments">
@@ -473,14 +432,11 @@
                 <h4 class="title">Popular Tags</h4>
               </div>
               <div class="tagcloud">
-                <a href="javascript:void(0);">General</a>
-                <a href="javascript:void(0);">Payment</a>
-                <a href="javascript:void(0);">Jobs </a>
-                <a href="javascript:void(0);">Application</a>
-                <a href="javascript:void(0);">Work</a>
-                <a href="javascript:void(0);">Recruiting</a>
-                <a href="javascript:void(0);">Income</a>
-                <a href="javascript:void(0);">Employer</a>
+                
+                {% for tag in fam_tag %}
+                <a href="javascript:void(0);">{{tag}}</a>
+                {% endfor %}
+                  
               </div>
             </div>
           </aside>

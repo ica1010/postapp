@@ -53,7 +53,7 @@
                             <div class="card-body row">
                                 <div class="mb-3 col-md-6">
                                     <label class="form-label">Post title</label>
-                                    <input type="file" required class="form-control" name="title" placeholder="Post title" />
+                                    <input type="text" required class="form-control" name="title" placeholder="Post title" />
                                 </div>
 
                                 <div class="mb-3 col-md-6">
@@ -76,7 +76,7 @@
                                         </div >
                                         <div class="change-btn d-flex align-items-center flex-wrap">
                                             <input type="file" required class="form-control d-none" id="imageUpload"
-                                                accept=".png, .jpg, .jpeg"  value="{% static "images/no-img-avatar.png" %}" name="image" />
+                                                accept=".png, .jpg, .jpeg"  value="{% static 'images/no-img-avatar.png' %}" name="image" />
                                             <label for="imageUpload"
                                                 class="btn btn-sm btn-primary light ms-0">Select Image</label>
                                         </div>
@@ -87,7 +87,7 @@
                                     <textarea id="ckeditor" name="description" ></textarea>
 
                                     <label class="form-label mt-5">Tags</label>
-                                    <select id="multi-value-select" style="width:100%;" name="tag" multiple="multiple">
+                                    <select id="multi-value-select" style="width:100%;" name="tags" multiple="multiple">
                                       
                                     </select>
                                 </div>
