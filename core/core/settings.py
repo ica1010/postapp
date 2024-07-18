@@ -25,12 +25,13 @@ SECRET_KEY = 'django-insecure-m0^&+6f+56$-yf65c%y0@#5epkca100d0-iq^w3xo0w#4f*3k6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['event-exrx.onrender.com']
+ALLOWED_HOSTS = ['event-exrx.onrender.com', '127.0.0.1', '*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'post',
     'user',
+  
     'taggit',
 ]
 
@@ -148,3 +150,64 @@ if not DEBUG:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = '/auth/sign-in/'
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Administration",
+    "site_header": "Event",
+    "site_brand": "Event",
+    "welcome_sign": "Bienvenue sur l'administration",
+    "copyright": "Event",
+    "search_model": "auth.User",
+    "user_avatar": None,
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "hide_apps": [],
+    "hide_models": [],
+    "order_with_respect_to": ["auth", "books", "books.author", "books.book"],
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "books": "fas fa-book",
+        "books.author": "fas fa-user-tie",
+        "books.book": "fas fa-book-open",
+    },
+    "default_icon_parents": "fas fa-chevron-circle-right",
+    "default_icon_children": "fas fa-circle",
+    "related_modal_active": True,
+    # "custom_css": "../static/admin/css/base.css",
+    "custom_js": None,
+    "show_ui_builder": True,
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "cosmo",
+    "dark_mode_theme": "darkly",
+    "navbar": "navbar-white navbar-light",
+    "no_navbar_border": False,
+    "sidebar": "sidebar-dark-primary",
+    "sidebar_nav_small_text": False,
+    "sidebar_nav_child_indent": True,
+    "sidebar_nav_compact_style": False,
+    "sidebar_nav_legacy_style": False,
+    "sidebar_nav_flat_style": False,
+    "theme": "cosmo",
+    "dark_mode_toggle": True,
+    "brand_colour": "navbar-primary",
+    "accent": "accent-primary",
+    "navbar_fixed": True,
+    "layout_boxed": False,
+    "footer_fixed": False,
+    "sidebar_fixed": True,
+    "sidebar_collapsed": False,
+    "sidebar_mini": True,
+    "sidebar_mini_expand_on_hover": True,
+    "small_text": False,
+    "footer_small_text": False,
+    "brand_small_text": False,
+    "brand_logo": None,
+    "brand_logo_small": None,
+    "navbar_dark_mode": False,
+    "logo": "admin/img/logo.png",
+    "site_icon": "admin/img/icon.png",
+}
