@@ -5,6 +5,7 @@ charset-normalizer==3.3.2
 click==8.1.7
 dj-database-url==2.2.0
 Django==5.0.7
+django-jazzmin==3.0.0
 django-taggit==5.0.1
 gunicorn==22.0.0
 h11==0.14.0
