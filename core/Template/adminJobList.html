@@ -163,8 +163,37 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
+                <div class="row">
+                {% for post in post  %}
+               
+                    <div class="col-xl-3 col-lg-4 col-6">
+                        <div class="card">
+                           <div, style="height: 35vh; overflow: hidden;">
+                            <img class="card-img-top img-fluid" src="{{post.image.url}}" alt="{{post.title}}">
+                           </div,>
+
+                            <div class="card-header border-0 pb-0">
+                                <h5 class="card-title">{{post.title}}</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">{{post.description|safe|truncatechars:75}}
+                                </p>
+                            </div>
+                            <div class="card-footer border-0 pt-0">
+                                <p class="card-text d-inline">Card footer</p>
+                                <a href="javascript:void(0);" class="float-end btn btn-outline-primary">Edit</a>
+                                <a href="javascript:void(0);" class="card-link float-end btn btn-outline">Detete</a>
+
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+                    
+              
             </div>
         </div>
     </div>
