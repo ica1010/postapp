@@ -26,7 +26,7 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Admin</a></li>
                 <li class="breadcrumb-item active">
-                    <a href="javascript:void(0)">Add Post</a>
+                    <a href="javascript:void(0)">Edit {{post.title}}</a>
                 </li>
             </ol>
         </div>
@@ -74,13 +74,14 @@
                             <div class="card-body">
                        
                                 <div class="avatar-upload d-flex align-items-center justify-content-center" >
-                                    <div class="position-relative"  style="width: 70%;height: 300px;">
+                                    <div class="position-relative"  style="    width: 260px;
+    height: 50vh;">
                                         <div class="avatar-preview">
                                             <div id="imagePreview" style='height: 100%; background-image: url({{post.image.url}});'></div>
                                         </div >
                                         <div class="change-btn d-flex align-items-center flex-wrap">
                                             <input type="file" class="form-control d-none" id="imageUpload"
-                                                accept=".png, .jpg, .jpeg"  value="{{post.image.url}}" name="image" />
+                                                accept=".png, .jpg, .jpeg" name="image" />
                                             <label for="imageUpload"
                                                 class="btn btn-sm btn-primary light ms-0">Select Image</label>
                                         </div>

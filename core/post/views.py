@@ -148,14 +148,14 @@ def editPost(request,jid):
       
         tags_l = request.POST.getlist('tags')
 
-        image = request.FILES['image']
+        image = request.FILES.get('image')
         
   
         category_inst = Category.objects.get(title = category)
         
 
         new_job.title = job_title
-        if image :
+        if image:
             new_job.image = image
         new_job.category = category_inst
         new_job.description = description
@@ -163,6 +163,7 @@ def editPost(request,jid):
         new_job.save()
 
         if tags_l:
+            new_job.tag.clear()
             for tag in tags_l:
                new_job.tag.add(tag)
              

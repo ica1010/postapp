@@ -89,83 +89,7 @@
                       
                     </ul>
                 </div>
-                <div class="filter cm-content-box box-primary">
-                    <div class="content-title SlideToolHeader">
-                        <div class="cpa">
-                            <i class="fa-solid fa-file-lines me-1"></i>My Post List
-                        </div>
-                        <div class="tools">
-                            <a href="javascript:void(0);" class="expand handle"><i class="fal fa-angle-down"></i></a>
-                        </div>
-                    </div>
-                    <div class="cm-content-body form excerpt">
-                        <div class="card-body pb-4">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>S.No</th>
-                                            <th>Title</th>
-                                            <th>Status</th>
-                                            <th>Modified</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        
-                                        {% for post in post %}
-                                        <tr>
-                                            <td>{{forloop.counter}}</td>
-                                            <td> 
-                                               
-                                        <h4 style="text-transform: uppercase;"> <span> <img src="{% static '{{post.image.url}}' %}" style="width: 100px; border-radius: 5px;margin-right: 10px;" alt=""></span>{{post.title}}</h4>
-                                        <br>
-                                        <p>{{post.description|truncatechars:250|safe}}</p>
-                                    </td>
-                                            <td>
-                                                
-                                                {% if post.active %}
-                                                    Published
-                                                    {% else %}
-                                                    <p class="text-danger">
-                                                        In revision
-                                                    </p>
-                                                {% endif %}
-                                                    
-                                            </td>
-                                            <td style="width: max-content !important;min-width: 100px;">{{post.publication_date|date:'d, M Y'}}</td>
-                                            <td class="text-nowrap">
-                                                <a href="{% url 'editPost' post.jid %}" class="btn btn-warning btn-sm content-icon">
-                                                    <i class="fa-solid fa-pen-to-square"></i>
-                                                </a>
-                                                <a href="javascript:void(0);" class="btn btn-danger btn-sm content-icon">
-                                                    <i class="fa-solid fa-trash"></i>
-                                                </a>
-                                            </td>
-                                             
-                                        </tr>
-                                        {% endfor %}
-                                            
-                                      
-                                    </tbody>
-                                </table>
-                                <div class="d-flex align-items-center justify-content-between flex-wrap">
-                                    <p class="mb-2 me-3">Page 1 of 5, showing 2 records out of 8 total, starting on record 1, ending on 2</p>
-                                    <nav aria-label="Page navigation example mb-2">
-                                      <ul class="pagination mb-2 mb-sm-0">
-                                        <li class="page-item"><a class="page-link" href="javascript:void(0);"><i class="fa-solid fa-angle-left"></i></a></li>
-                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-                                        <li class="page-item"><a class="page-link " href="javascript:void(0);"><i class="fa-solid fa-angle-right"></i></a></li>
-                                      </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
+                
                 <div class="row">
                 {% for post in post  %}
                
@@ -183,8 +107,8 @@
                                 </p>
                             </div>
                             <div class="card-footer border-0 pt-0">
-                                <p class="card-text d-inline">Card footer</p>
-                                <a href="javascript:void(0);" class="float-end btn btn-outline-primary">Edit</a>
+                                <p class="card-text d-inline">{{post.publication_date|date:'d, M Y'}}</p>
+                                <a href="{% url 'editPost' post.jid %}" class="float-end btn btn-outline-primary">Edit</a>
                                 <a href="javascript:void(0);" class="card-link float-end btn btn-outline">Detete</a>
 
                             </div>
