@@ -194,7 +194,19 @@
 						</ul>
 					</div>
 				</nav>
+				
 			</div>
+			{% if messages %}
+                            
+				{% for message in messages  %}
+				<div class="alert alert-secondary alert-dismissible alert-alt fade show">
+					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close">
+					</button>
+					<strong>Success!</strong> {{message}}
+				</div>
+				{% endfor %}
+			
+				{% endif %}
 		</div>
 		<!--**********************************
             Header end ti-comment-alt
@@ -245,13 +257,18 @@
 				<ul class="metismenu" id="menu">
 				
 					<li><a href="{% url 'AdminJobList' %}" class="" aria-expanded="false">
-							<i class="flaticon-013-checkmark"></i>
+							<i class="fa fa-list"></i>
 							<span class="nav-text">Job Alerts</span>
 						</a>
 					</li>
 					<li><a href="{% url 'addjob' %}" class="" aria-expanded="false">
-						<i class="fa fa-plus"></i>
+						<i class="fa fa-plus-circle"></i>
 						<span class="nav-text">Add new alert</span>
+					</a>
+
+					<li><a href="comment/" class="" aria-expanded="false">
+						<i class="fa fa-comment"></i>
+						<span class="nav-text">Comments</span>
 					</a>
 				</li>
 				</ul>
@@ -264,6 +281,7 @@
 					<p class="fs-12">Made with <span class="heart"></span> by DexignLab</p>
 				</div> -->
 			</div>
+
 		</div>
 
 

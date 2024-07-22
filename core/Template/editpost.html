@@ -22,28 +22,7 @@
 </style>
 <div class="content-body">
     <div class="container-fluid">
-        <div class="page-titles">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Admin</a></li>
-                <li class="breadcrumb-item active">
-                    <a href="javascript:void(0)">Edit {{post.title}}</a>
-                </li>
-            </ol>
-        </div>
-        {% if messages %}
-                            
-        {% for message in messages  %}
-        <div class="page-titles">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active">
-                    <a href="javascript:void(0)">{{message}}</a>
-                </li>
-            </ol>
-        </div>
-        {% endfor %}
-    
-        {% endif %}
-
+        
             <div class="d-flex"  style="justify-content: center;">
                 <form class="row" action="{% url 'editPost' post.jid %}" method="post" enctype="multipart/form-data">
                     {% csrf_token %}

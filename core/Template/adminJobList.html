@@ -4,12 +4,6 @@
 {% block adminblock %}
 <div class="content-body">
     <div class="container-fluid">
-        <div class="row page-titles">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">CMS</a></li>
-                <li class="breadcrumb-item active"><a href="javascript:void(a0)">Blog</a></li>
-            </ol>
-        </div>
         <!-- Row -->
         <div class="row">
             <div class="col-lg-12">
@@ -100,23 +94,43 @@
                            </div,>
 
                             <div class="card-header border-0 pb-0">
-                                <h5 class="card-title">{{post.title}}</h5>
+                                
+                                <h5 class="card-title">{{post.title}} (<p class="card-text d-inline">{{post.publication_date|date:'d, M Y'}}</p>)</h5>
                             </div>
                             <div class="card-body">
                                 <p class="card-text">{{post.description|safe|truncatechars:75}}
                                 </p>
                             </div>
                             <div class="card-footer border-0 pt-0">
-                                <p class="card-text d-inline">{{post.publication_date|date:'d, M Y'}}</p>
                                 <a href="{% url 'editPost' post.jid %}" class="float-end btn btn-outline-primary">Edit</a>
-                                <a href="javascript:void(0);" class="card-link float-end btn btn-outline">Detete</a>
+                                <a href="javascript:void(0);" class="card-link float-end btn btn-outline"  data-bs-toggle="modal" data-bs-target="#{{post.jid}}" >Detete</a>
 
                             </div>
+                           
+                    
+                            
                         </div>
                     </div>
                 {% endfor %}
                 </div>
-                    
+                {% for post in post %}
+                <div class="modal fade" id="{{post.jid}}">
+                 <div class="modal-dialog" role="document">
+                     <div class="modal-content">
+                         <div class="modal-header">
+                             <h5 class="modal-title">Delete Confirmation</h5>
+                             <button type="button" class="btn-close" data-bs-dismiss="modal">
+                             </button>
+                         </div>
+                         <div class="modal-body">Are you sure to delete definitively this post ?</div>
+                         <div class="modal-footer">
+                             <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">No </button>
+                             <a type="button" class="btn btn-primary" href="{% url 'deletePost' post.jid %}" >Yes, delete it</a>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+                {% endfor %}
               
             </div>
         </div>

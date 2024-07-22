@@ -12,4 +12,5 @@ urlpatterns = [
     path('my-job-alert/', views.adminJobList, name='AdminJobList'),
     path('add-job-alert/', views.addjob, name='addjob'),
     path('edit-post/<jid>', views.editPost, name='editPost'),
+    path('dalete-post/<jid>', views.deletePost, name='deletePost'),
 ]

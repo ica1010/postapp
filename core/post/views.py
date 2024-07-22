@@ -96,6 +96,8 @@ def adminJobList(request):
     return render(request, 'adminJobList.html', context)
 
 
+
+
 @login_required(login_url='/auth/sign-in/')
 def addjob(request):
 
@@ -127,10 +129,13 @@ def addjob(request):
         if tags_l:
             for tag in tags_l:
                new_job.tag.add(tag)
-             
+        messages.success(request, f'le post {new_job.title} a été crée avec succes')
+        return redirect('AdminJobList')
     context = {
         'cat':cat,
     }
+    
+
     return render(request, 'addjobalert.html', context)
 
 
@@ -166,10 +171,23 @@ def editPost(request,jid):
             new_job.tag.clear()
             for tag in tags_l:
                new_job.tag.add(tag)
+
+        messages.success(request, f'le post {new_job.title} a été modifié avec succes')
+
+        return redirect('AdminJobList')
              
     context = {
         'cat':cat,
         'post':new_job
     }
+    
+
     return render(request, 'editpost.html', context)
 
+def deletePost(request, jid):
+    url = request.META.get('HTTP_REFERER')
+
+    post = Post.objects.get(jid=jid)
+    post.delete()
+    messages.success(request, f'le post {post.title} a été supprimé avec succes')
+    return redirect (url)

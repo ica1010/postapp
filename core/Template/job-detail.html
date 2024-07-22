@@ -44,7 +44,7 @@
                   </a>
                     {% else %}
                     <a href="javascript:void(0);">
-                      <span class="bg-dark text-ligth" style="padding: 10px 12px; border-radius: 50px;color: whitesmoke;font-weight: 700;">{{post.author|slice:":2"}}</span>
+                      <span class="bg-dark text-ligth rounded-circle p-2" style="color: whitesmoke;font-weight: 800; text-transform: uppercase;">{{post.author.user.username|slice:":2"}}</span>
                       <span>By {{post.author}}</span>
                     </a>
                    {% endif %}
