@@ -14,9 +14,9 @@
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-xl-9 col-lg-12 col-md-12">
-					 <h6 class="sub-title wow fadeInUp" data-wow-delay="0.4s">We Have 208,000+ Live Jobs</h6>
+					 <h6 class="sub-title wow fadeInUp" data-wow-delay="0.4s">We Have {{post.count}}+ Live Events</h6>
 					<h1 class=" wow fadeInUp" id="text" data-wow-delay="0.6s"> La reference pour vos <span class=" text-primary">annonces</span> evenementielles</h1>
-					<p class=" text text-primary wow fadeInUp font-w500" data-wow-delay="0.8s">Type your keywork, then click search to find your perfect job. </p>
+					<p class=" text text-primary wow fadeInUp font-w500" data-wow-delay="0.8s">Type your keywork, then click search to find the Events. </p>
 				<div class="bnr-search-bar wow fadeInUp" data-wow-delay="1.0s">
 					
 							<form class="row align-items-center justify-content-center" style="justify-content: center !important;" action="{% url 'job-search' %}" method="get">
@@ -29,7 +29,7 @@
 												<i class="fa-solid fa-magnifying-glass"></i>
 											</span>
 											<div class="icon-content w-100">
-												<input name="title" required="required" class="form-control" placeholder="Job Title, Keywords..." type="text">
+												<input name="title" required="required" class="form-control" placeholder="Event Title, Keywords..." type="text">
 											</div>
 										</div>
 									</div>
@@ -44,11 +44,11 @@
 					</div>
 					 <h6 class="bottom-contact wow fadeInUp" data-wow-delay="1.2s">
 						<span>Popular Searches: </span>
-						<a href="javascript:void(0);">Designer,</a>
+						<!-- <a href="javascript:void(0);">Designer,</a>
 						<a href="javascript:void(0);">Senor,</a>
 						<a href="javascript:void(0);">Architecture,</a>
 						<a href="javascript:void(0);">IOS,</a>
-						<a href="javascript:void(0);">Etc.</a>
+						<a href="javascript:void(0);">Etc.</a> -->
 					</h6> 
 				</div>
 			 <div class="col-xl-3 col-lg-5 col-md-12">
@@ -150,8 +150,8 @@
 	<section class="content-inner overflow-hidden position-relative bg-light">
 		<div class="container">
 			<div class="section-head text-center">
-				<h6 class="text wow fadeInUp" data-wow-delay="0.6s">All Jobs Post</h6>
-				<h2 class="title wow fadeInUp" data-wow-delay="0.8s">Find Your Career You Deserve It </h2>
+				<h6 class="text wow fadeInUp" data-wow-delay="0.6s">All Events</h6>
+				<h2 class="title wow fadeInUp" data-wow-delay="0.8s">Lastest events </h2>
 			</div>
 			<div class="row">
              
