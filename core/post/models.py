@@ -30,7 +30,7 @@ class Category(models.Model):
 #     content_object = models.ForeignKey('Job', on_delete=models.CASCADE)
 
 class Post(models.Model):
-    jid = ShortUUIDField(unique=True, length=6 ,max_length=255, alphabet='1234567890' , editable=False,  prefix='job-')
+    jid = ShortUUIDField(unique=True, length=6 ,max_length=255, alphabet='1234567890' , editable=False,  prefix='event-')
     title = models.CharField(max_length=50)
     image = models.ImageField(max_length=250, default='default.jpg')
     category = models.ForeignKey(Category,on_delete=models.CASCADE, default='', related_name='category')
