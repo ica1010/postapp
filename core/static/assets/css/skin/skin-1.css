@@ -1,22 +1,24 @@
 :root{
 	
+	--secondary: #145650;
 	/* Primary */
-	--primary: #4885ED;
-	--primary-hover: #1f56b3;
-	--primary-dark: #1f56b3;
+  --primary: #ed6d47;
+  --primary-hover: #f15728;
+  --primary-dark: #381105;
 	
 	/* Primary RGBA */
-	--rgba-primary-1: rgba(72,133,237,0.1);
-	--rgba-primary-3: rgba(72,133,237,0.3);
-	--rgba-primary-2: rgba(72,133,237,0.2);
-	--rgba-primary-4: rgba(72,133,237,0.4);
-	--rgba-primary-5: rgba(72,133,237,0.5);
-	--rgba-primary-05: rgba(72,133,237,0.05);
-	--rgba-primary-6: rgba(72,133,237,0.6);
-	--rgba-primary-7: rgba(72,133,237,0.7);
-	--rgba-primary-8: rgba(72,133,237,0.8);
-	--rgba-primary-9: rgba(72,133,237,0.9);
-	
+	/* Primary RGBA */
+	--rgba-primary-0: rgba(237, 109, 71);
+	--rgba-primary-1: rgba(237, 109, 71,0.1);
+	--rgba-primary-3: rgba(237, 109, 71,0.3);
+	--rgba-primary-2: rgba(237, 109, 71,0.2);
+	--rgba-primary-4: rgba(237, 109, 71,0.4);
+	--rgba-primary-5: rgba(237, 109, 71,0.5);
+	--rgba-primary-05: rgba(237, 109, 71,0.05);
+	--rgba-primary-6: rgba(237, 109, 71,0.6);
+	--rgba-primary-7: rgba(237, 109, 71,0.7);
+	--rgba-primary-8: rgba(237, 109, 71,0.8);
+	--rgba-primary-9: rgba(237, 109, 71,0.9);
 	/* Other */
 	--secondary: #232323;
 	--theme-text-color: #fff;
