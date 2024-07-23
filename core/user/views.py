@@ -45,7 +45,7 @@ def login_view(request):
     # Redirige l'utilisateur vers la page d'accueil s'il est déjà connecté
     if request.user.is_authenticated:
         messages.warning(request, 'You are already logged in.')
-        return redirect('homePage')
+        return redirect('home')
 
     # Traite le formulaire de connexion lorsque la méthode est POST
     if request.method == "POST":
@@ -63,7 +63,7 @@ def login_view(request):
         if user is not None:
             auth_login(request, user)
             messages.success(request, 'Login successfully!')
-            return redirect('home')  # Redirige vers la page d'accueil après une connexion réussie
+            # return redirect('home')  # Redirige vers la page d'accueil après une connexion réussie
         else:
             messages.error(request, 'Invalid username or password.')
     
@@ -72,7 +72,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     messages.success(request, 'you are now logged out ')
-    return redirect('home')  
+    return redirect('login')  
 
 def profile(request):
     return render(request,'auth/profile.html' )
