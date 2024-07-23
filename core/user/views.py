@@ -63,7 +63,7 @@ def login_view(request):
         if user is not None:
             auth_login(request, user)
             messages.success(request, 'Login successfully!')
-            # return redirect('home')  # Redirige vers la page d'accueil après une connexion réussie
+            return redirect('home')  # Redirige vers la page d'accueil après une connexion réussie
         else:
             messages.error(request, 'Invalid username or password.')
     
