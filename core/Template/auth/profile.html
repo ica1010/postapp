@@ -15,46 +15,32 @@
                    <div class="card-header">
                        <h4 class="card-title">Account setup</h4>
                    </div>
-                   <form class="profile-form">
+                   <form class="profile-form" method="post" action="{% url 'profile' %}">
+                    {% csrf_token %}
                        <div class="card-body">
                         <div class="filter cm-content-box box-primary">
                             <div class="content-title SlideToolHeader">
                                 <div class="cpa">Basic informations</div>
                                 <div class="tools">
-                                    <a href="javascript:void(0);" class="expand handle"><i
-                                            class="fal fa-angle-down"></i></a>
+                                    <a href="javascript:void(0);" class="expand handle"><i class="fal fa-angle-down"></i></a>
                                 </div>
                             </div>
                             <div class="cm-content-body publish-content form excerpt">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-6 m-b30">
-                                            <label class="form-label">Full Name</label>
-                                            <input type="text" class="form-control" value="{{request.user.first_name}} {{request.user.last_name}}">
+                                            <label class="form-label">First Name</label>
+                                            <input type="text"  name="fname" class="form-control" value="{{request.user.first_name}}">
+                                        </div>
+                                        <div class="col-sm-6 m-b30">
+                                            <label class="form-label">Last Name</label>
+                                            <input type="text"  name="lname" class="form-control" value="{{request.user.last_name}}">
                                         </div>
                                         <div class="col-sm-6 m-b30">
                                             <label class="form-label">Username</label>
-                                            <input type="text" class="form-control" value="{{request.user.username}}">
+                                            <input type="text" class="form-control" name="uname" value="{{request.user.username}}">
                                         </div>
                                         
-                                        <div class="col-sm-6 m-b30">
-                                            <label class="form-label">Gender</label>
-                                            <select class="selectpicker nice-select default-select form-control wide mh-auto">
-                                                <option>Male</option>
-                                                <option>Female</option>
-                                                <option>Other</option>
-                                            </select>
-                                        </div>
-                                       
-                                        <div class="col-sm-6 m-b30">
-                                            <label class="form-label">Phone</label>
-                                            <input type="text" class="form-control" value="{{profile.phone}}">
-                                        </div>
-                                        <div class="col-sm-6 m-b30">
-                                            <label class="form-label">Email adress</label>
-                                            <input type="text" class="form-control" value="{{request.user.email}}">
-                                        </div>
-                                      
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +108,7 @@
                         </div>
                        </div>
                        <div class="card-footer">
-                           <button class="btn btn-primary">UPDATE</button>
+                           <button class="btn btn-primary" type="submit">UPDATE</button>
                            <a href="page-register.html" class="text-primary btn-link">Forgot your password?</a>
                        </div>
                    </form>

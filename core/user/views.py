@@ -31,7 +31,8 @@ def register_view(request):
                 user.is_superuser = True
                 user.save()
 
-                ProfileEmployeur.objects.create(user=user)
+                p = ProfileEmployeur.objects.create(user=user)
+                user.username = p.eid
                 login(request, user)
                 return redirect('home')
             except Exception as e :
@@ -75,4 +76,46 @@ def logout_view(request):
     return redirect('login')  
 
 def profile(request):
+    if request.method == "POST":
+        username = request.POST.get('uname')
+
+        firstname = request.POST.get('fname')
+        lastname = request.POST.get('lname')
+        email = request.POST.get('email')
+
+
+        phone = request.POST.get('phone')
+        whatsapp = request.POST.get('whatsapp')
+
+        linkedin = request.POST.get('linkedin')
+        twitter = request.POST.get('twitter')
+        instagram = request.POST.get('instagram')
+        facebook = request.POST.get('facebook')
+        youtube = request.POST.get('youtube')
+
+
+        user = User.objects.get(id = request.user.id)
+        p = ProfileEmployeur.objects.get(user=user)
+        user.username = username 
+        user.first_name =  firstname
+        user.last_name = lastname 
+
+        
+
+        p.mail = email
+        p.phone = phone
+        p.whatsapp = whatsapp
+        p.linkedin_link = linkedin
+        p.twetter_link = twitter
+        p.instagram_link = instagram
+        p.facebook_link = facebook
+        p.youtube_link = youtube
+
+        user.save()
+        p.save()
+        messages.success(request, f'vos informations on été modifié avec success ')
+
+        return redirect('AdminJobList')
+
+
     return render(request,'auth/profile.html' )
