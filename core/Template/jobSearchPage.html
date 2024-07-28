@@ -12,7 +12,7 @@
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                         <li class="breadcrumb-item"><a href="index.html">Search</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{job_title}}</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{title}}</li>
                     </ul>
                 </nav>
             </div>
@@ -29,13 +29,12 @@
                     <aside class="side-bar sticky-top right">
                     <div class="widget">
                             <div class="widget-title">
-                                <h4 class="title">Search</h4>
+                                <h4 class="title">Search </h4>
                             </div>
                             <div class="search-bx">
                                 <form role="search"  action="{% url 'job-search' %}" method="get">
                                     <div class="input-group">
-                                            <input name="title" value="{{job_title}}" class="form-control style-1" placeholder="Search.." type="text">
-                                            <input type="hidden" value="{{locality}}" name="location">
+                                            <input name="title" value="{{title}}" class="form-control style-1" placeholder="Search.." type="text">
                                         <span class="input-group-btn">
                                             <button type="submit" class="btn btn-primary sharp radius-no"><i class="fa-solid fa-magnifying-glass scale3"></i></button>
                                         </span>
@@ -110,35 +109,44 @@
                 </div>
                 <div class="col-xl-8 col-lg-8">
                     <div class="row">
-                
-                        {% for job in job %}
-                        <div class="col-xl-6 col-md-6">
-                            <div class="job-bx style-1 wow fadeInUp" data-wow-delay="1.0s">
-                                <div class="d-flex m-b25 justify-content-between">
-                                    <span class="media">
-                                        <img src="{{job.image.url}}" alt="image">
-                                    </span>
-                                    <ul>
-                                        <li><a class="job-day" href="javascript:void(0);">{{job.timeago}} </a></li>
-                                        <li><a class="job-time" href="javascript:void(0);">{{job.type}}</a></li>
-                                    </ul>
-                                </div>
-                                <div class="job-contant">
-                                    <h6 class="job-title "><a href="{% url 'job-detail' job.jid %}">{{job.title}}</a></h6>
-                                    <p class="text">{{job.locality}}</p>
-                                </div>
-                                <div class="jobs-amount">
-                                    {% if job.is_salary_alpha %}
-                                            <div class="amount">{{job.salary}} <span>/ Month</span></div>
-                                            {% else %}
-                                            <h6 class="amount">{{job.salary}}</h6>
-                                            {% endif %}
-                                    
-                                    <a class="btn btn-primary" href="{% url 'job-detail' job.jid %}"><i class="fa-solid fa-chevron-right"></i></a>
-                                </div>
-                            </div>
+                        {% if post %}
+                        <div class="widget-title">
+                          <h4 class="title">We found {{post.count}} Items  for {{title}}</h4>
                         </div>
-                        {% endfor %}
+                        <div class="row m-b30 m-sm-b10">
+                             
+                           {% for post in post %}
+                           <div class="col-xl-6 col-md-6  m-b30">
+                              <div class="dz-card style-1 overlay-shine wow fadeInUp" data-wow-delay="1.{{forloop.counter}}s">
+                                  <div class="dz-media">
+                                      <a href="{% url 'job-detail' post.jid %}"><img src="{{post.image.url}}"></a>
+                                      <span class="date"><a href="javascript:void(0)">{{post.publication_date|date:'d M Y'}}</a></span>
+                                  </div>
+                                  <div class="dz-info">
+                                      <div class="dz-meta">
+                                          <ul>
+                                              <li class="post-author text-primary">
+                                                  <span>
+                                                      <i class="fa-solid fa-user"></i>
+                                                  </span>
+                                                  By {{post.author}}</li>
+                                              <!-- <li class="post-date text-primary">
+                                                  <span>
+                                                      <i class="fa-solid fa-message"></i>
+                                                  </span>
+                                              24 Comments</li> -->
+                                          </ul>
+                                      </div>
+                                      <h4 class="dz-title" style="text-transform: uppercase;"><a href="{% url 'job-detail' post.jid %}">{{post.title|truncatechars:23}}</a></h4>
+                                      <p>{{post.description|safe|truncatechars:75}}</p>
+                                      <a href="{% url 'job-detail' post.jid %}" class="btn btn-primary">Read More</a>
+                                  </div>
+                              </div>
+                          </div>
+                           {% endfor %}
+                         
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
              

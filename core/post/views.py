@@ -11,13 +11,12 @@ from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 from django.contrib import messages
 from taggit.models import TaggedItem
 from django.db.models import Count
-
 from taggit.models import Tag
-# from visits.models import Visits
-# Create your views here.
+
+
 def homePage(request):
     category = Category.objects.all()
-    post = Post.objects.all()
+    post = Post.objects.all().order_by('-publication_date')
 
     context = {
         'post':post,
@@ -34,17 +33,17 @@ def jobPage(request):
         'post':post,
         'category':category,
     }
-    return render(request, 'job.html',context)
+    return render(request, 'job.html', context)
 
 def jobSearch(request):
-    post_title = request.GET['title']
-    locality = request.GET['location']
-    post = post.objects.filter(title__icontains = post_title)
+    
+    title =request.GET['title']
+    post = Post.objects.all().filter(title__icontains = title)
 
-    context = {
+
+    context = { 
         'post':post,
-        'post_title':post_title,
-        'locality':locality,
+        'title':title
     }
     return render(request, 'jobSearchPage.html', context)
 

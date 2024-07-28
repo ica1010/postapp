@@ -37,7 +37,7 @@ def register_view(request):
                 return redirect('home')
             except Exception as e :
                 messages.error(request, f'Erreur :{e}')
-                return url
+                return redirect (url)
 
 
     return render (request, 'auth/signup.html')    
