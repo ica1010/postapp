@@ -33,13 +33,13 @@
   --body-color: #142238;
   --border-color: #CFDBED;
   --body-bg: #ffffff;
-  --font-family-base: Poppins, sans-serif;
+  --font-family-base: "Montserrat", sans-serif;
   --grey: #F4F6FA;
   --bg-image: '';
   --input-bg: #fff;
   --card-bg: #fff;
   --border-radius-base: 10px;
-  --font-family-title: Poppins, sans-serif;
+  --font-family-title: "Montserrat", sans-serif;
   --title: #523325;
   --body-img: url(../images/background/bglight.png.html);
   --headings-font-weight:600;
